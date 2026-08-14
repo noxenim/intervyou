@@ -1,6 +1,8 @@
 from fastapi import APIRouter, HTTPException
 
 from app.models.interview import (
+    AnswerSubmission,
+    AnswerSubmissionResponse,
     CurrentQuestionResponse,
     InterviewCreate,
     InterviewResponse,
@@ -8,6 +10,7 @@ from app.models.interview import (
 from app.services.interview_service import (
     create_interview,
     get_interview,
+    submit_answer,
 )
 
 
@@ -44,3 +47,25 @@ def get_current_question(interview_id: str):
         "total_questions": interview["question_count"],
         "question": question,
     }
+
+@router.post(
+    "/{interview_id}/answers",
+    response_model=AnswerSubmissionResponse,
+)
+def answer_question(
+    interview_id: str,
+    data: AnswerSubmission,
+):
+
+    result = submit_answer(
+        interview_id,
+        data.answer,
+    )
+
+    if result is None:
+        raise HTTPException(
+            status_code=404,
+            detail="Interview not found",
+        )
+
+    return result

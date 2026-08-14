@@ -20,6 +20,7 @@ def create_interview(data: InterviewCreate):
         "question_count": data.question_count,
         "questions": questions.questions,
         "current_question": 0,
+        "answers": [],
         "evaluations": [],
         "status": "ready",
     }
@@ -30,3 +31,42 @@ def create_interview(data: InterviewCreate):
 
 def get_interview(interview_id: str):
     return interviews.get(interview_id)
+
+def submit_answer(interview_id: str, answer: str):
+
+    interview = interviews.get(interview_id)
+
+    if interview is None:
+        return None
+
+    current_index = interview["current_question"]
+
+    question = interview["questions"][current_index]
+
+    interview["answers"].append(
+        {
+            "question_id": question.id,
+            "answer": answer,
+        }
+    )
+
+    is_last_question = (
+        current_index == interview["question_count"] - 1
+    )
+
+    if is_last_question:
+        interview["status"] = "completed"
+    else:
+        interview["current_question"] += 1
+
+    return {
+        "interview_id": interview_id,
+        "question_number": current_index + 1,
+        "answered": True,
+        "is_complete": is_last_question,
+        "next_question_number": (
+            None
+            if is_last_question
+            else interview["current_question"] + 1
+        ),
+    }

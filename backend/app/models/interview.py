@@ -25,3 +25,13 @@ class CurrentQuestionResponse(BaseModel):
     question_number: int
     total_questions: int
     question: InterviewQuestion
+
+class AnswerSubmission(BaseModel):
+    answer: str = Field(min_length=1)
+
+class AnswerSubmissionResponse(BaseModel):
+    interview_id: str
+    question_number: int
+    answered: bool
+    is_complete: bool
+    next_question_number: int | None
