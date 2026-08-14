@@ -27,3 +27,6 @@ def create_interview(data: InterviewCreate):
     interviews[interview_id] = interview
 
     return interview
+
+def get_interview(interview_id: str):
+    return interviews.get(interview_id)

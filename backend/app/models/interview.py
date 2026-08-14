@@ -19,3 +19,9 @@ class InterviewResponse(BaseModel):
     questions: list[InterviewQuestion]
     current_question: int
     status: str
+
+class CurrentQuestionResponse(BaseModel):
+    interview_id: str
+    question_number: int
+    total_questions: int
+    question: InterviewQuestion
