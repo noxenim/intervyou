@@ -1,10 +1,14 @@
 from pydantic import BaseModel, Field
 
+from app.models.question import InterviewQuestion
+
+
 class InterviewCreate(BaseModel):
     role: str = Field(min_length=1)
     experience_level: str = Field(min_length=1)
     topics: list[str] = Field(min_length=1)
     question_count: int = Field(default=5, ge=5, le=20)
+
 
 class InterviewResponse(BaseModel):
     interview_id: str
@@ -12,4 +16,6 @@ class InterviewResponse(BaseModel):
     experience_level: str
     topics: list[str]
     question_count: int
+    questions: list[InterviewQuestion]
+    current_question: int
     status: str
