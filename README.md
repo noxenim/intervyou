@@ -41,24 +41,25 @@ Intervyou then:
 ---
 # Running Locally
 
+
 ## Prerequisites
 
 Make sure you have installed:
 
-* Python 3.10+
-* Node.js
-* npm
-* A Groq API key
+- Python 3.10+
+- Node.js
+- npm
+- A Groq API key
 
 ---
 
 ## 1. Clone the repository
 
 ```bash
-git clone <YOUR_GITHUB_REPOSITORY_URL>
+git clone https://github.com/noxenim/intervyou.git
 
 cd intervyou
-```
+````
 
 ---
 
@@ -70,7 +71,7 @@ Navigate to the backend:
 cd backend
 ```
 
-Create and activate a virtual environment.
+Create a Python virtual environment:
 
 ### Windows
 
@@ -81,7 +82,7 @@ python -m venv venv
 
 Install the dependencies:
 
-```bash
+```powershell
 pip install -r requirements.txt
 ```
 
@@ -95,29 +96,31 @@ Create a `.env` file inside `backend/`:
 GROQ_API_KEY=your_groq_api_key_here
 ```
 
-Do not commit this file.
+Do not commit this file to GitHub.
 
 ---
 
 ## 4. Start the backend
 
-From the project root:
+From the project root, run:
 
 ```bash
 uvicorn backend.app.main:app --reload
 ```
 
-The FastAPI server will run at:
+The local FastAPI server will run at:
 
 ```text
 http://127.0.0.1:8000
 ```
 
-FastAPI's interactive API documentation is available at:
+FastAPI's interactive API documentation will be available at:
 
 ```text
 http://127.0.0.1:8000/docs
 ```
+
+> Note: The current frontend configuration uses the deployed Render backend at `https://intervyou-backend.onrender.com`. Therefore, running the backend locally is useful for backend development and API testing, but the deployed frontend will communicate with the hosted backend.
 
 ---
 
@@ -149,6 +152,8 @@ The frontend will be available at the URL shown by Vite, typically:
 http://localhost:5173
 ```
 
+The local frontend will connect to the deployed Intervyou backend.
+
 ---
 
 # Environment Variables
@@ -159,13 +164,8 @@ The backend requires:
 | -------------- | --------------------------------------------------- |
 | `GROQ_API_KEY` | API key used to access the Llama model through Groq |
 
-Example:
-
-```env
-GROQ_API_KEY=your_api_key
-```
-
 ---
+
 # Tradeoffs
 
 ## End-of-interview evaluation
