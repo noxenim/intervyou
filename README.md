@@ -14,7 +14,11 @@ The goal was to build a complete, runnable AI agent rather than simply wrapping 
 
 
 
-https://github.com/user-attachments/assets/d6912bb0-3ce0-4b1f-8352-a8fe6cdc9a94
+
+
+https://github.com/user-attachments/assets/38536303-209d-40f3-9f34-edf7911be021
+
+
 
 
 
