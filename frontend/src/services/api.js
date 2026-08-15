@@ -15,7 +15,7 @@ export async function createInterview(interviewData) {
 
   return response.json();
 }
-
+// mistake
 export async function getInterview(interviewId) {
   const response = await fetch(
     `${API_BASE_URL}/interviews/${interviewId}`
