@@ -95,12 +95,24 @@ function Interview({
 
           <form onSubmit={handleSubmit}>
             <textarea
-              value={answer}
-              onChange={(event) =>
-                setAnswer(event.target.value)
-              }
-              placeholder="Type your answer..."
-              disabled={isSubmitting}
+                value={answer}
+                onChange={(event) =>
+                    setAnswer(event.target.value)
+                }
+                onKeyDown={(event) => {
+                    if (
+                    event.ctrlKey &&
+                    event.key === "Enter"
+                    ) {
+                    event.preventDefault();
+
+                    if (answer.trim() && !isSubmitting) {
+                        event.currentTarget.form.requestSubmit();
+                    }
+                    }
+                }}
+                placeholder="Type your answer..."
+                disabled={isSubmitting}
             />
 
             <div className="answer-footer">
