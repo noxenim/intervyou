@@ -20,7 +20,7 @@ function App() {
   const [isCreatingInterview, setIsCreatingInterview] = useState(false);
   const [isEvaluating, setIsEvaluating] = useState(false);
 
-  const [isCreatingInterview, setIsCreatingInterview] = useState(false);
+  
 
   async function handleInterviewComplete() {
     setIsEvaluating(true);
@@ -36,6 +36,20 @@ function App() {
       console.error("Failed to evaluate interview:", error);
     } finally {
       setIsEvaluating(false);
+    }
+  }
+  async function handleSetupSubmit(data) {
+    setIsCreatingInterview(true);
+
+    try {
+      const interviewData = await createInterview(data);
+
+      setInterview(interviewData);
+      setScreen("interview");
+    } catch (error) {
+      console.error("Failed to create interview:", error);
+    } finally {
+      setIsCreatingInterview(false);
     }
   }
 

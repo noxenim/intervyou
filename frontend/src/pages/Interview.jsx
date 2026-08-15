@@ -45,7 +45,7 @@ function Interview({
         interview.interview_id
       );
 
-      console.log("UPDATED INTERVIEW:", updatedInterview);
+      
 
       setCurrentQuestion(updatedInterview.question);
       setCurrentQuestionNumber(updatedInterview.question_number);
