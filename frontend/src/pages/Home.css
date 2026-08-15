@@ -1,46 +1,58 @@
 .home {
   min-height: calc(100vh - 76px);
+
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 80px 48px;
+  flex-direction: column;
 }
 
-.home-hero {
+.hero {
   width: 100%;
-  max-width: 900px;
-  text-align: center;
+  max-width: 1100px;
+
+  margin: auto;
+  padding: 100px 48px 120px;
 }
 
-.home-eyebrow {
+.hero-eyebrow {
   margin: 0 0 28px;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
+
   color: #6e6e73;
+
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
 }
 
-.home-hero h1 {
+.hero h1 {
   margin: 0;
-  font-size: clamp(48px, 7vw, 76px);
-  line-height: 1.02;
-  letter-spacing: -0.055em;
+
+  max-width: 850px;
+
+  font-size: clamp(56px, 8vw, 100px);
+  line-height: 0.96;
+  letter-spacing: -0.065em;
   font-weight: 600;
 }
 
-.home-description {
-  max-width: 560px;
-  margin: 32px auto 0;
+.hero-description {
+  max-width: 520px;
+
+  margin: 38px 0 0;
+
   color: #6e6e73;
+
   font-size: 17px;
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
-.primary-button {
-  margin-top: 44px;
-  padding: 15px 22px;
+.hero-button {
+  margin-top: 42px;
+
+  padding: 15px 21px;
+
   border: 1px solid #000000;
   border-radius: 999px;
+
   background: #000000;
   color: #ffffff;
 
@@ -57,16 +69,70 @@
     transform 180ms ease;
 }
 
-.primary-button span {
+.hero-button span {
   font-size: 17px;
-  line-height: 1;
 }
 
-.primary-button:hover {
+.hero-button:hover {
   background: #ffffff;
   color: #000000;
 }
 
-.primary-button:active {
+.hero-button:active {
   transform: scale(0.98);
+}
+
+.home-footer {
+  width: 100%;
+  max-width: 1100px;
+
+  margin: 0 auto;
+  padding: 0 48px 48px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  border-top: 1px solid #d2d2d7;
+}
+
+.home-footer > div {
+  padding-top: 20px;
+
+  display: flex;
+  gap: 14px;
+
+  color: #6e6e73;
+
+  font-size: 12px;
+}
+
+.footer-number {
+  color: #000000;
+
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 700px) {
+  .hero {
+    padding: 70px 24px 90px;
+  }
+
+  .hero h1 {
+    font-size: 52px;
+  }
+
+  .hero-description {
+    font-size: 16px;
+  }
+
+  .home-footer {
+    padding: 0 24px 35px;
+
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .home-footer > div {
+    padding-top: 18px;
+  }
 }

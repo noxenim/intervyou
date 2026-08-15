@@ -1,64 +1,75 @@
 .setup {
   min-height: calc(100vh - 76px);
-  padding: 70px 48px 100px;
+  padding: 0 48px 100px;
 }
 
 .setup-container {
   width: 100%;
-  max-width: 680px;
+  max-width: 900px;
+
   margin: 0 auto;
 }
 
-.back-button {
+.setup-back {
+  margin-top: 28px;
   padding: 0;
+
   border: 0;
   background: transparent;
+
   color: #6e6e73;
 
-  font-size: 14px;
+  font-size: 13px;
 
   transition: color 180ms ease;
 }
 
-.back-button:hover {
+.setup-back:hover {
   color: #000000;
 }
 
 .setup-header {
-  margin-top: 70px;
+  margin-top: 80px;
 }
 
 .setup-eyebrow {
-  margin: 0 0 18px;
+  margin: 0 0 24px;
 
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
   color: #6e6e73;
+
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
 }
 
 .setup-header h1 {
   margin: 0;
 
-  font-size: clamp(40px, 6vw, 58px);
+  font-size: clamp(48px, 7vw, 72px);
   line-height: 1;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.06em;
   font-weight: 600;
 }
 
 .setup-header p:last-child {
-  margin: 22px 0 0;
+  max-width: 480px;
+
+  margin: 28px 0 0;
 
   color: #6e6e73;
+
   font-size: 16px;
+  line-height: 1.6;
 }
 
 .setup-form {
-  margin-top: 65px;
+  max-width: 650px;
+
+  margin-top: 80px;
 }
 
 .form-field {
-  margin-bottom: 44px;
+  margin-bottom: 42px;
 }
 
 .form-field label {
@@ -74,11 +85,10 @@
 .form-field select {
   width: 100%;
 
-  padding: 12px 0;
+  padding: 16px 0;
 
   border: 0;
   border-bottom: 1px solid #d2d2d7;
-  border-radius: 0;
 
   outline: none;
 
@@ -90,28 +100,37 @@
   transition: border-color 180ms ease;
 }
 
-.form-field input::placeholder {
-  color: #a1a1a6;
-}
-
 .form-field input:focus,
 .form-field select:focus {
   border-bottom-color: #000000;
 }
 
+.form-field input::placeholder {
+  color: #a1a1a6;
+}
+
+.form-field select {
+  appearance: none;
+
+  cursor: pointer;
+}
+
 .field-hint {
   display: block;
 
-  margin-top: 9px;
+  margin-top: 10px;
 
-  color: #6e6e73;
+  color: #a1a1a6;
+
   font-size: 12px;
 }
 
 .setup-submit {
-  margin-top: 8px;
+  margin-top: 60px;
+}
 
-  padding: 16px 23px;
+.setup-submit button {
+  padding: 15px 22px;
 
   border: 1px solid #000000;
   border-radius: 999px;
@@ -132,29 +151,29 @@
     transform 180ms ease;
 }
 
-.setup-submit span {
+.setup-submit button span {
   font-size: 17px;
 }
 
-.setup-submit:hover {
+.setup-submit button:hover {
   background: #ffffff;
   color: #000000;
 }
 
-.setup-submit:active {
+.setup-submit button:active {
   transform: scale(0.98);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
   .setup {
-    padding: 40px 24px 70px;
+    padding: 0 24px 80px;
   }
 
   .setup-header {
-    margin-top: 55px;
+    margin-top: 60px;
   }
 
   .setup-form {
-    margin-top: 50px;
+    margin-top: 60px;
   }
 }

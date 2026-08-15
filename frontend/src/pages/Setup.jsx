@@ -4,9 +4,8 @@ import "./Setup.css";
 
 function Setup({ onBack, onSubmit }) {
   const [role, setRole] = useState("");
-  const [experienceLevel, setExperienceLevel] = useState("Junior");
+  const [experienceLevel, setExperienceLevel] = useState("");
   const [topics, setTopics] = useState("");
-  const [questionCount, setQuestionCount] = useState(5);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -18,43 +17,66 @@ function Setup({ onBack, onSubmit }) {
         .split(",")
         .map((topic) => topic.trim())
         .filter(Boolean),
-      question_count: questionCount,
+      question_count: 5,
     });
   }
 
   return (
     <main className="setup">
       <div className="setup-container">
-        <button className="back-button" onClick={onBack}>
+
+        <button
+          className="setup-back"
+          onClick={onBack}
+        >
           ← Back
         </button>
 
         <div className="setup-header">
-          <p className="setup-eyebrow">INTERVIEW SETUP</p>
+          <p className="setup-eyebrow">
+            INTERVIEW SETUP
+          </p>
 
-          <h1>Make it yours.</h1>
+          <h1>
+            Tell us what
+            <br />
+            you're preparing for.
+          </h1>
 
           <p>
-            Tell Intervyou what you want to practice.
+            We'll generate a technical interview
+            based on your preferences.
           </p>
         </div>
 
-        <form className="setup-form" onSubmit={handleSubmit}>
+
+        <form
+          className="setup-form"
+          onSubmit={handleSubmit}
+        >
+
           <div className="form-field">
-            <label htmlFor="role">Role</label>
+            <label htmlFor="role">
+              Target role
+            </label>
 
             <input
               id="role"
               type="text"
-              placeholder="e.g. Backend Developer"
               value={role}
-              onChange={(event) => setRole(event.target.value)}
+              onChange={(event) =>
+                setRole(event.target.value)
+              }
+              placeholder="e.g. Backend Developer"
               required
             />
           </div>
 
+
           <div className="form-field">
-            <label htmlFor="experience">Experience level</label>
+            <label htmlFor="experience">
+              Experience level
+            </label>
 
             <select
               id="experience"
@@ -62,53 +84,62 @@ function Setup({ onBack, onSubmit }) {
               onChange={(event) =>
                 setExperienceLevel(event.target.value)
               }
+              required
             >
-              <option value="Junior">Junior</option>
-              <option value="Mid-level">Mid-level</option>
-              <option value="Senior">Senior</option>
+              <option value="" disabled>
+                Select your level
+              </option>
+
+              <option value="Beginner">
+                Beginner
+              </option>
+
+              <option value="Junior">
+                Junior
+              </option>
+
+              <option value="Intermediate">
+                Intermediate
+              </option>
+
+              <option value="Advanced">
+                Advanced
+              </option>
             </select>
           </div>
 
+
           <div className="form-field">
-            <label htmlFor="topics">Topics</label>
+            <label htmlFor="topics">
+              Topics
+            </label>
 
             <input
               id="topics"
               type="text"
-              placeholder="e.g. Python, FastAPI, SQL"
               value={topics}
-              onChange={(event) => setTopics(event.target.value)}
+              onChange={(event) =>
+                setTopics(event.target.value)
+              }
+              placeholder="e.g. Python, FastAPI, SQL"
               required
             />
 
             <span className="field-hint">
-              Separate topics with commas.
+              Separate multiple topics with commas.
             </span>
           </div>
 
-          <div className="form-field">
-            <label htmlFor="question-count">
-              Number of questions
-            </label>
 
-            <select
-              id="question-count"
-              value={questionCount}
-              onChange={(event) =>
-                setQuestionCount(Number(event.target.value))
-              }
-            >
-              <option value={5}>5</option>
-              <option value={7}>7</option>
-              <option value={10}>10</option>
-            </select>
+          <div className="setup-submit">
+            <button type="submit">
+              Begin interview
+              <span>→</span>
+            </button>
           </div>
 
-          <button className="setup-submit" type="submit">
-            Begin Interview
-            <span>→</span>
-          </button>
         </form>
+
       </div>
     </main>
   );
