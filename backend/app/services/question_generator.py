@@ -60,6 +60,15 @@ Return ONLY valid JSON in this exact structure:
 
     content = response.choices[0].message.content
 
+
+    content = content.strip()
+
+    if content.startswith("```"):
+        content = content.removeprefix("```json")
+        content = content.removeprefix("```")
+        content = content.removesuffix("```")
+        content = content.strip()
+
     questions_data = json.loads(content)
 
     return InterviewQuestionSet.model_validate(questions_data)

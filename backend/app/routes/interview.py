@@ -8,10 +8,12 @@ from app.models.interview import (
     InterviewResponse,
 )
 from app.services.interview_service import (
+    complete_interview,
     create_interview,
     get_interview,
     submit_answer,
 )
+from app.models.evaluation import InterviewEvaluation
 
 
 router = APIRouter(
@@ -69,3 +71,25 @@ def answer_question(
         )
 
     return result
+
+@router.post(
+    "/{interview_id}/evaluate",
+    response_model=InterviewEvaluation,
+)
+def evaluate_completed_interview(interview_id: str):
+
+    interview = complete_interview(interview_id)
+
+    if interview is None:
+        raise HTTPException(
+            status_code=404,
+            detail="Interview not found or not completed",
+        )
+
+    return {
+        "evaluations": interview["evaluations"],
+        "overall_score": interview["overall_score"],
+        "overall_evaluation": interview["overall_evaluation"],
+        "strengths": interview["strengths"],
+        "gaps": interview["gaps"],
+    }

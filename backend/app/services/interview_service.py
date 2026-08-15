@@ -2,6 +2,7 @@ import uuid
 
 from app.models.interview import InterviewCreate
 from app.services.question_generator import generate_questions
+from app.services.evaluator import evaluate_interview
 
 
 interviews = {}
@@ -70,3 +71,23 @@ def submit_answer(interview_id: str, answer: str):
             else interview["current_question"] + 1
         ),
     }
+
+def complete_interview(interview_id: str):
+
+    interview = interviews.get(interview_id)
+
+    if interview is None:
+        return None
+
+    if interview["status"] != "completed":
+        return None
+
+    evaluation = evaluate_interview(interview)
+
+    interview["evaluations"] = evaluation.evaluations
+    interview["overall_score"] = evaluation.overall_score
+    interview["overall_evaluation"] = evaluation.overall_evaluation
+    interview["strengths"] = evaluation.strengths
+    interview["gaps"] = evaluation.gaps
+
+    return interview
