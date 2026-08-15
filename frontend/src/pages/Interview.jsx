@@ -3,7 +3,11 @@ import { useState } from "react";
 import "./Interview.css";
 import { getInterview, submitAnswer } from "../services/api";
 
-function Interview({ interview, onComplete }) {
+function Interview({
+  interview,
+  onComplete,
+  isEvaluating,
+}) {
   const [currentQuestion, setCurrentQuestion] = useState(
     interview.questions[interview.current_question]
   );
@@ -57,6 +61,16 @@ function Interview({ interview, onComplete }) {
 
   return (
     <main className="interview">
+        {isEvaluating && (
+            <div className="evaluation-overlay">
+                <div className="evaluation-message">
+                    <p>INTERVIEW COMPLETE</p>
+                    <h1>Evaluating your answers.</h1>
+                    <span>This may take a few moments.</span>
+                </div>
+            </div>
+        )}
+
       <div className="interview-container">
 
         <div className="interview-top">

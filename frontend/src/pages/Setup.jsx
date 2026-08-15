@@ -2,7 +2,11 @@ import { useState } from "react";
 
 import "./Setup.css";
 
-function Setup({ onBack, onSubmit }) {
+function Setup({
+  onBack,
+  onSubmit,
+  isSubmitting,
+}) {
   const [role, setRole] = useState("");
   const [experienceLevel, setExperienceLevel] = useState("");
   const [topics, setTopics] = useState("");
@@ -132,9 +136,15 @@ function Setup({ onBack, onSubmit }) {
 
 
           <div className="setup-submit">
-            <button type="submit">
-              Begin interview
-              <span>→</span>
+            <button
+                type="submit"
+                disabled={isSubmitting}
+                >
+                {isSubmitting
+                    ? "Preparing interview..."
+                    : "Begin interview"}
+
+                {!isSubmitting && <span>→</span>}
             </button>
           </div>
 

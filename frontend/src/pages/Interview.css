@@ -216,3 +216,49 @@
     display: none;
   }
 }
+.evaluation-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+
+  background: #ffffff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+}
+
+.evaluation-message {
+  padding: 40px;
+}
+
+.evaluation-message p {
+  margin: 0 0 24px;
+
+  color: #6e6e73;
+
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+}
+
+.evaluation-message h1 {
+  margin: 0;
+
+  font-size: clamp(40px, 6vw, 64px);
+  line-height: 1;
+  letter-spacing: -0.055em;
+  font-weight: 500;
+}
+
+.evaluation-message span {
+  display: block;
+
+  margin-top: 24px;
+
+  color: #6e6e73;
+
+  font-size: 14px;
+}

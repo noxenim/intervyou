@@ -163,6 +163,10 @@
 .setup-submit button:active {
   transform: scale(0.98);
 }
+.setup-submit button:disabled {
+  cursor: wait;
+  opacity: 0.5;
+}
 
 @media (max-width: 700px) {
   .setup {

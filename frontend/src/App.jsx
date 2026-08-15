@@ -17,19 +17,14 @@ function App() {
   const [screen, setScreen] = useState("home");
   const [interview, setInterview] = useState(null);
   const [evaluation, setEvaluation] = useState(null);
+  const [isCreatingInterview, setIsCreatingInterview] = useState(false);
+  const [isEvaluating, setIsEvaluating] = useState(false);
 
-  async function handleSetupSubmit(data) {
-    try {
-      const interviewData = await createInterview(data);
-
-      setInterview(interviewData);
-      setScreen("interview");
-    } catch (error) {
-      console.error("Failed to create interview:", error);
-    }
-  }
+  const [isCreatingInterview, setIsCreatingInterview] = useState(false);
 
   async function handleInterviewComplete() {
+    setIsEvaluating(true);
+
     try {
       const evaluationData = await evaluateInterview(
         interview.interview_id
@@ -37,9 +32,10 @@ function App() {
 
       setEvaluation(evaluationData);
       setScreen("results");
-
     } catch (error) {
       console.error("Failed to evaluate interview:", error);
+    } finally {
+      setIsEvaluating(false);
     }
   }
 
@@ -55,12 +51,14 @@ function App() {
         <Setup
           onBack={() => setScreen("home")}
           onSubmit={handleSetupSubmit}
+          isSubmitting={isCreatingInterview}
         />
       )}
       {screen === "interview" && interview && (
         <Interview
           interview={interview}
           onComplete={handleInterviewComplete}
+          isEvaluating={isEvaluating}
         />
       )}
       {screen === "results" && evaluation && (
