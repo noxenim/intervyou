@@ -1,0 +1,28 @@
+.results {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 80px 48px;
+}
+
+.results h1 {
+  font-size: 48px;
+  letter-spacing: -0.05em;
+}
+
+.results h2 {
+  margin-top: 50px;
+  font-size: 32px;
+}
+
+.results h3 {
+  margin-top: 50px;
+}
+
+.results li {
+  margin-bottom: 10px;
+}
+
+.results p {
+  color: #6e6e73;
+  line-height: 1.6;
+}
