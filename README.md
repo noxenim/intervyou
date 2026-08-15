@@ -10,7 +10,11 @@ The goal was to build a complete, runnable AI agent rather than simply wrapping 
 
 **Live Demo:** [Add deployed URL]
 
-> A short demo video / GIF can be added here.
+
+
+https://github.com/user-attachments/assets/d6912bb0-3ce0-4b1f-8352-a8fe6cdc9a94
+
+
 
 ---
 ## What Intervyou Does
