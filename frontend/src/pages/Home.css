@@ -1,0 +1,72 @@
+.home {
+  min-height: calc(100vh - 76px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 48px;
+}
+
+.home-hero {
+  width: 100%;
+  max-width: 900px;
+  text-align: center;
+}
+
+.home-eyebrow {
+  margin: 0 0 28px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: #6e6e73;
+}
+
+.home-hero h1 {
+  margin: 0;
+  font-size: clamp(48px, 7vw, 76px);
+  line-height: 1.02;
+  letter-spacing: -0.055em;
+  font-weight: 600;
+}
+
+.home-description {
+  max-width: 560px;
+  margin: 32px auto 0;
+  color: #6e6e73;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.primary-button {
+  margin-top: 44px;
+  padding: 15px 22px;
+  border: 1px solid #000000;
+  border-radius: 999px;
+  background: #000000;
+  color: #ffffff;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  transition:
+    background 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.primary-button span {
+  font-size: 17px;
+  line-height: 1;
+}
+
+.primary-button:hover {
+  background: #ffffff;
+  color: #000000;
+}
+
+.primary-button:active {
+  transform: scale(0.98);
+}

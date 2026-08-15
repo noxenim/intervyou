@@ -1,0 +1,160 @@
+.setup {
+  min-height: calc(100vh - 76px);
+  padding: 70px 48px 100px;
+}
+
+.setup-container {
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.back-button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #6e6e73;
+
+  font-size: 14px;
+
+  transition: color 180ms ease;
+}
+
+.back-button:hover {
+  color: #000000;
+}
+
+.setup-header {
+  margin-top: 70px;
+}
+
+.setup-eyebrow {
+  margin: 0 0 18px;
+
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: #6e6e73;
+}
+
+.setup-header h1 {
+  margin: 0;
+
+  font-size: clamp(40px, 6vw, 58px);
+  line-height: 1;
+  letter-spacing: -0.05em;
+  font-weight: 600;
+}
+
+.setup-header p:last-child {
+  margin: 22px 0 0;
+
+  color: #6e6e73;
+  font-size: 16px;
+}
+
+.setup-form {
+  margin-top: 65px;
+}
+
+.form-field {
+  margin-bottom: 44px;
+}
+
+.form-field label {
+  display: block;
+
+  margin-bottom: 12px;
+
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.form-field input,
+.form-field select {
+  width: 100%;
+
+  padding: 12px 0;
+
+  border: 0;
+  border-bottom: 1px solid #d2d2d7;
+  border-radius: 0;
+
+  outline: none;
+
+  background: transparent;
+  color: #000000;
+
+  font-size: 17px;
+
+  transition: border-color 180ms ease;
+}
+
+.form-field input::placeholder {
+  color: #a1a1a6;
+}
+
+.form-field input:focus,
+.form-field select:focus {
+  border-bottom-color: #000000;
+}
+
+.field-hint {
+  display: block;
+
+  margin-top: 9px;
+
+  color: #6e6e73;
+  font-size: 12px;
+}
+
+.setup-submit {
+  margin-top: 8px;
+
+  padding: 16px 23px;
+
+  border: 1px solid #000000;
+  border-radius: 999px;
+
+  background: #000000;
+  color: #ffffff;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  transition:
+    background 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.setup-submit span {
+  font-size: 17px;
+}
+
+.setup-submit:hover {
+  background: #ffffff;
+  color: #000000;
+}
+
+.setup-submit:active {
+  transform: scale(0.98);
+}
+
+@media (max-width: 600px) {
+  .setup {
+    padding: 40px 24px 70px;
+  }
+
+  .setup-header {
+    margin-top: 55px;
+  }
+
+  .setup-form {
+    margin-top: 50px;
+  }
+}

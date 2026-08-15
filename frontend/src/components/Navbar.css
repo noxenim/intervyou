@@ -1,0 +1,29 @@
+.navbar {
+  width: 100%;
+  padding: 28px 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-logo {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.navbar-right {
+  color: #6e6e73;
+  font-size: 13px;
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    padding: 24px;
+  }
+
+  .navbar-right {
+    display: none;
+  }
+}
