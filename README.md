@@ -8,7 +8,7 @@ The goal was to build a complete, runnable AI agent rather than simply wrapping 
 
 ---
 
-**Live Demo:** [Add deployed URL]
+**Live Demo:** 
 
 
 
